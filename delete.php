@@ -4,7 +4,7 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         deleteCategory($id);
-        redirectPage("./index.php");
+        redirectPage("index.php");
         echo $id;
     }
 ?>

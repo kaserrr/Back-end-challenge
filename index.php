@@ -12,6 +12,7 @@
     <title>Main list</title>
 </head>
 <body>
+    <a href="addcat.php">Add cat</a>
     <?php
         $categories = getCategories();
         foreach($categories as $category){

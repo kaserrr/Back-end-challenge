@@ -11,13 +11,13 @@
     <title>Add category</title>
 </head>
 <body>
-    <form action="" method="get">
+    <form action="" method="post">
         <input type="text" name="addcat">
         <input type="submit" value="Add" name="submit">
     </form>
     <?php 
-        if (isset($_GET['submit'])) {
-            $catName = $_GET['addcat'];
+        if (isset($_POST['submit'])) {
+            $catName = $_POST['addcat'];
             addCategory($catName);
             redirectPage("index.php");
         }

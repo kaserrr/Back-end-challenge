@@ -29,3 +29,11 @@
 
         return $item->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    function editCategory($id, $name) {
+        $query = "UPDATE categories SET name = '$name' WHERE id = '$id'";
+        $item = $GLOBALS['db']->prepare($query);
+        $item->execute();
+
+        return $item->fetchAll(\PDO::FETCH_ASSOC);
+    }

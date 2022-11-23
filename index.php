@@ -22,8 +22,8 @@
                     <h1>
                         <?php echo $category['name'];?>
 
-                        <a href="./edit.php?type=category&id=<?php echo $category['id']; ?>">Edit</a>
-                        <a href="./delete.php?id=<?php echo $category['id']; ?>&type=category">Delete</a>
+                        <a href="./editcat.php?type=category&id=<?php echo $category['id']; ?>">Edit</a>
+                        <a href="./deletecat.php?type=category&id=<?php echo $category['id']; ?>">Delete</a>
                     </h1>
                 </div>
         <?php } ?>

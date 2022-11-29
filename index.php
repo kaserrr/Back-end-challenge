@@ -12,20 +12,36 @@
     <title>Main list</title>
 </head>
 <body>
-    <a href="addcat.php">Add cat</a>
     <?php
         $categories = getCategories();
-        foreach($categories as $category){
+        foreach($categories as $category) {
             ?>  
-            <div class="column is-one-third">
-                <div class="title">
+            <div>
+                <div>
                     <h1>
                         <?php echo $category['name'];?>
-
                         <a href="./editcat.php?type=category&id=<?php echo $category['id']; ?>">Edit</a>
                         <a href="./deletecat.php?type=category&id=<?php echo $category['id']; ?>">Delete</a>
+                        <a href="./addcat.php?type=item&catId=<?php echo $category['id']; ?>">Add item</a>
                     </h1>
                 </div>
-        <?php } ?>
+            </div>
+    <?php } ?>
+
+    <?php
+        $items = getItems();
+        foreach($items as $item) {
+            ?>
+            <div>
+                <div>
+                    <h2>
+                        <?php echo $item['name'];?>
+                        <a href="./editcat.php?type=item&id=<?php echo $item['id']; ?>">Edit</a>
+                        <a href="./deletecat.php?type=item&id=<?php echo $item['id']; ?>">Delete</a>
+                    </h2>
+                </div>
+            </div>
+    <?php } ?>
+    <a href="./addcat.php?type=category&catId=<?php echo $category['id']; ?>">Add category</a>
 </body>
 </html>

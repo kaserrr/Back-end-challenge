@@ -7,4 +7,6 @@
         redirectPage("index.php");
         echo $id;
     }
+
+    
 ?>

@@ -37,3 +37,19 @@
 
         return $item->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    function getItems() {
+        $query = "SELECT * FROM items";
+        $item = $GLOBALS['db']->prepare($query);
+        $item->execute();
+
+        return $item->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    function addItem($itemName) {
+        $query = "INSERT INTO items (name, type) VALUES ('$itemName','item')";
+        $item = $GLOBALS['db']->prepare($query);
+        $item->execute();
+
+        return $item->fetchAll(\PDO::FETCH_ASSOC);
+    }

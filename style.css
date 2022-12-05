@@ -1,0 +1,19 @@
+#start {
+    background-color: red;
+}
+
+#busy {
+    background-color: orange;
+}
+
+#done {
+    background-color: green;
+}
+
+#listitem {
+    display: flex;
+}
+
+#listitem h2 {
+    padding-right: 10px;
+}

@@ -8,30 +8,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Add category</title>
 </head>
 <body>
 <?php
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
         if(isset($_GET['createCat'])){
             $catName = $_POST['category_name'];
             addCategory($catName);
         }
-        elseif(isset($_GET['createItem'])){
+        else if(isset($_GET['createItem'])) {
             if(isset($_GET['catId'])){
 
                 $catId = $_GET['catId'];
                 $itemName = $_POST['item_name'];
+                $itemStatus = $_POST['status'];
                 
-                addItem($itemName);
+                addItem($itemName, $catId, $itemStatus);
             }
         }
     }
 
 
 
-    function createNewCatForm(){
+    function createNewCatForm() {
         ?>
             <h1>new category</h1>
             <form action="./addcat.php?createCat=true" method="post">
@@ -41,11 +43,17 @@
         <?php
     }
 
-    function createNewItemForm($catId){
+    function createNewItemForm($catId) {
         ?>
             <h1>new item</h1>
             <form action="./addcat.php?createItem=true&catId=<?php echo $catId; ?>" method="post">
                 <input class="input is-primary" type="text" name="item_name" placeholder="item name/content" required>
+                <select name="status">
+                    <option value="Start" id="start">start</option>
+                    <option value="Busy" id="busy">busy</option>
+                    <option value="Done" id="done">done</option>
+                </select>
+
                 <input type="submit" value="submit" class="button">
             </form>
         <?php

@@ -12,18 +12,73 @@
 </head>
 <body>
     <a href="./index.php"><button class="button">back</button></a>
-            <form action="" method="post">
+        <?php function editCat() { ?>
+            <form action="./editcat.php?type=category&status=<?php echo $_GET['itemstatus'] ?>&id=<?php echo $_GET['id']; ?>" method="post">
                 <Label>Naam:</Label>
-                <input type="text" name="editcat">
+                <input type="text" name="name">
                 <input type="submit" class="button" name="submit">
             </form>
+        <?php } ?>
+
+        <?php function editItems() { ?>
+            <form action="./editcat.php?type=item&status=<?php echo $_GET['itemstatus'] ?>&id=<?php echo $_GET['id']; ?>" method="post">
+                <Label>Naam:</Label>
+                <input type="text" name="name">
+                <select name="itemstatus">
+                    <option value="start">Start</option>
+                    <option value="busy">Busy</option>
+                    <option value="done">Done</option>
+                </select>
+                <input type="submit" class="button" name="submit">
+            </form> 
+        <?php } ?>
     <?php
-        if (!empty($_POST)) {
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if(isset($_GET['type']) && isset($_GET['id'])){
+            $type = $_GET['type'];
             $id = $_GET['id'];
-            $name = $_POST['editcat'];
-            echo $name;
-            editCategory($id, $name);   
-            redirectPage("index.php");
+            
+            switch($type):
+
+                case 'category':
+                    editCategory($id, $_POST['name']);     
+                    redirectPage("./index.php");
+                break;
+
+                case 'item':
+                    editItem($id, $_POST['name']);
+                    redirectPage("./index.php");
+                break;
+
+                default:
+                    redirectPage("./index.php");
+            endswitch;
+            
+        }
+    }   else {
+            if(isset($_GET['type']) && isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $type = $_GET['type'];
+    
+                switch($type):
+                    case 'category':
+                            $item = getSingleCategory($id);                                
+                            editCat($item[0]);
+                        break;
+                    
+                    case 'item':
+                            $item = getSingleItem($id);
+                            editItems($item[0]);
+                        break;
+    
+                    default:
+                        redirectPage("./index.php");
+                        break;
+                endswitch;
+            }
+            else{
+                redirectPage("./index.php");    
+            }
         }
     ?>
 </body>

@@ -14,16 +14,14 @@
 </head>
 <body>
     <?php
-        $lists;
+        $lists = getItems();
         $categories = getCategories();
 
             if(isset($_GET['status'])) {
                 $status = $_GET['status'];
                 $catId = $_GET['catId'];
                 $lists = itemsSortStatus($status, $catId);
-            } else {
-                $lists = getItems();
-            }
+            } 
 
         foreach($categories as $category) {
             ?> 

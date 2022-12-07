@@ -110,4 +110,12 @@
                 redirectPage("./index.php");
         }
     }
+
+    function sortCategory($sort) {
+        $query = "SELECT * FROM categories ORDER BY name $sort";
+        $item = $GLOBALS['db']->prepare($query);
+        $item->execute();
+
+        return $item->fetchAll(\PDO::FETCH_ASSOC);
+    }
     

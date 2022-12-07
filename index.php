@@ -21,8 +21,14 @@
                 $status = $_GET['status'];
                 $catId = $_GET['catId'];
                 $lists = itemsSortStatus($status, $catId);
-            } 
-
+            } else if(isset($_GET['sort'])) {
+                $sort = $_GET['sort'];
+                $categories = sortCategory($sort);
+            }
+            ?>
+            <a href="./index.php?type=category&sort=ASC">Ascending</a>
+            <a href="./index.php?type=category&sort=DESC">Descending</a>
+            <?php
         foreach($categories as $category) {
             ?> 
             <div>

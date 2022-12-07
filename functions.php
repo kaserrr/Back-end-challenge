@@ -63,8 +63,8 @@
         return $item->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    function editItem($id, $name) {
-        $query = "UPDATE items SET name = '$name' WHERE id = '$id'";
+    function editItem($id, $name, $status) {
+        $query = "UPDATE items SET name = '$name', status = '$status' WHERE id = '$id'";
         $item = $GLOBALS['db']->prepare($query);
         $item->execute();
 

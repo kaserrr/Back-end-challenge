@@ -95,12 +95,12 @@
         return $item->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    function itemsSortStatus($status, $catId){
+    function itemsSortStatus($status){
         switch($status){
             case 'start':
             case 'busy':
             case 'done':
-                $query = "SELECT * FROM items WHERE status = '$status' AND catId = '$catId'";
+                $query = "SELECT * FROM items WHERE status = '$status'";
                 $item = $GLOBALS['db']->prepare($query);
                 $item->execute();
                 return $item->fetchAll(\PDO::FETCH_ASSOC);

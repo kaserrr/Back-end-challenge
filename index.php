@@ -19,15 +19,21 @@
 
             if(isset($_GET['status'])) {
                 $status = $_GET['status'];
-                $catId = $_GET['catId'];
-                $lists = itemsSortStatus($status, $catId);
+                $lists = itemsSortStatus($status);
             } else if(isset($_GET['sort'])) {
                 $sort = $_GET['sort'];
                 $categories = sortCategory($sort);
             }
             ?>
-            <a href="./index.php?type=category&sort=ASC">Ascending</a>
-            <a href="./index.php?type=category&sort=DESC">Descending</a>
+            <div>
+                <h2>
+                    <a href="./index.php?sort=ASC">Ascending</a>
+                    <a href="./index.php?sort=DESC">Descending</a>
+                </h2>
+                <a href="./index.php?status=start">Start</a>
+                <a href="./index.php?status=busy">Busy</a>
+                <a href="./index.php?status=done">Done</a>
+            </div>
             <?php
         foreach($categories as $category) {
             ?> 
@@ -38,11 +44,6 @@
                         <a href="./editcat.php?type=category&id=<?php echo $category['id']; ?>">Edit</a>
                         <a href="./deletecat.php?type=category&id=<?php echo $category['id']; ?>">Delete</a>
                         <a href="./addcat.php?type=item&catId=<?php echo $category['id']; ?>">Add item</a>
-                        <div>
-                            <a href="./index.php?type=item&status=start&catId=<?php echo $category['id']; ?>">Start</a>
-                            <a href="./index.php?type=item&status=busy&catId=<?php echo $category['id']; ?>">Busy</a>
-                            <a href="./index.php?type=item&status=done&catId=<?php echo $category['id']; ?>">Done</a>
-                        </div>
                     </h1>
                 </div>
             </div>

@@ -32,7 +32,6 @@
     }
 
 
-
     function createNewCatForm() {
         ?>
             <h1>new category</h1>

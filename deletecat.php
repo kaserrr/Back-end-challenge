@@ -1,7 +1,6 @@
 <?php
     include_once 'functions.php';
 
-
     if(isset($_GET['id']) && isset($_GET['type'])){
         
         $id = $_GET['id'];

@@ -64,12 +64,12 @@
                 switch($type):
                     case 'category':
                             $item = getSingleCategory($id);                                
-                            editCat($item[0]);
+                            editCat();
                         break;
                     
                     case 'item':
                             $item = getSingleItem($id);
-                            editItems($item[0]);
+                            editItems();
                         break;
     
                     default:

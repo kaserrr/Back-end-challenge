@@ -87,14 +87,6 @@
         return $item->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    function sortLength() {
-        $query = "SELECT * FROM items ORDER BY CHAR_LENGTH(name)";
-        $item = $GLOBALS['db']->prepare($query);
-        $item->execute();
-
-        return $item->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
     function itemsSortStatus($status){
         switch($status){
             case 'start':
@@ -112,7 +104,7 @@
     }
 
     function sortCategory($sort) {
-        $query = "SELECT * FROM categories ORDER BY name $sort";
+        $query = "SELECT * FROM categories ORDER BY CHAR_LENGTH(name) $sort";
         $item = $GLOBALS['db']->prepare($query);
         $item->execute();
 

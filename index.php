@@ -41,9 +41,9 @@
                 <div>
                     <h1>
                         <?php echo $category['name'];?>
-                        <a href="./editcat.php?type=category&id=<?php echo $category['id']; ?>">Edit</a>
-                        <a href="./deletecat.php?type=category&id=<?php echo $category['id']; ?>">Delete</a>
-                        <a href="./addcat.php?type=item&catId=<?php echo $category['id']; ?>">Add item</a>
+                        <a href="./edit.php?type=category&id=<?php echo $category['id']; ?>">Edit</a>
+                        <a href="./delete.php?type=category&id=<?php echo $category['id']; ?>">Delete</a>
+                        <a href="./add.php?type=item&catId=<?php echo $category['id']; ?>">Add item</a>
                     </h1>
                 </div>
             </div>
@@ -54,8 +54,8 @@
                     <div>
                         <div id="listitem">
                             <h2><?php echo $item['name'];?></h2>
-                            <h2><a href="./editcat.php?type=item&id=<?php echo $item['id']; ?>">Edit</a></h2>
-                            <h2><a href="./deletecat.php?type=item&id=<?php echo $item['id']; ?>">Delete</a></h2>
+                            <h2><a href="./edit.php?type=item&id=<?php echo $item['id']; ?>">Edit</a></h2>
+                            <h2><a href="./delete.php?type=item&id=<?php echo $item['id']; ?>">Delete</a></h2>
                             <h2 id="<?php echo $item['status'] ?>"><?php echo $item['status'] ?></h2>
                         </div>
                     </div>
@@ -64,6 +64,8 @@
                 }
         ?>
         <?php } ?>
-        <a href="./addcat.php?type=category&catId=<?php echo $category['id']; ?>">Add category</a>
+        <a href="./add.php?type=category&catId=<?php echo $category['id']; ?>">Add category</a>
+
+        <a href=""
 </body>
 </html>

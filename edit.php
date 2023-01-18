@@ -13,7 +13,7 @@
 <body>
     <a href="./index.php"><button class="button">back</button></a>
         <?php function editCat() { ?>
-            <form action="./editcat.php?type=category&id=<?php echo $_GET['id']; ?>" method="post">
+            <form action="./edit.php?type=category&id=<?php echo $_GET['id']; ?>" method="post">
                 <Label>Naam:</Label>
                 <input type="text" name="name">
                 <input type="submit" class="button" name="submit">
@@ -21,7 +21,7 @@
         <?php } ?>
 
         <?php function editItems() { ?>
-            <form action="./editcat.php?type=item&id=<?php echo $_GET['id']; ?>" method="post">
+            <form action="./edit.php?type=item&id=<?php echo $_GET['id']; ?>" method="post">
                 <Label>Naam:</Label>
                 <input type="text" name="name">
                 <select name="status">

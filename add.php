@@ -35,7 +35,7 @@
     function createNewCatForm() {
         ?>
             <h1>new category</h1>
-            <form action="./addcat.php?createCat=true" method="post">
+            <form action="./add.php?createCat=true" method="post">
                 <input class="input is-primary" type="text" name="category_name" id="" placeholder="category name" required>
                 <input type="submit" value="submit" class="button">
             </form>
@@ -45,7 +45,7 @@
     function createNewItemForm($catId) {
         ?>
             <h1>new item</h1>
-            <form action="./addcat.php?createItem=true&catId=<?php echo $catId; ?>" method="post">
+            <form action="./add.php?createItem=true&catId=<?php echo $catId; ?>" method="post">
                 <input class="input is-primary" type="text" name="item_name" placeholder="item name/content" required>
                 <select name="status">
                     <option value="Start" id="start">start</option>

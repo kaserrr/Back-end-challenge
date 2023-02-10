@@ -27,8 +27,8 @@
 
     //deletes category which has the same id
     function deleteCategory($id) {
-        $query = "DELETE categories, items FROM categories INNER JOIN items ON categories.id = items.catId 
-        WHERE items.catId = $id";
+        $query = "DELETE FROM categories WHERE id = $id;
+        DELETE FROM items WHERE catId = $id";
         $item = $GLOBALS['db']->prepare($query);
         $item->execute();
 

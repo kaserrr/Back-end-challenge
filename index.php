@@ -18,6 +18,7 @@
         <?php
             $lists = getItems();
             $categories = getCategories();
+            
 
             if(isset($_GET['status'])) {
                 $status = $_GET['status'];
@@ -55,9 +56,10 @@
                             <div>
                                 <div id="listitem" class="d-inline-flex p-2">
                                     <h3><?php echo $item['name'];?></h3>
-                                    <h3><a href="./edit.php?type=item&id=<?php echo $item['id']; ?>" class="btn btn-secondary">Edit</a></h3>
-                                    <h3><a href="./delete.php?type=item&id=<?php echo $item['id']; ?>" class="btn btn-secondary">Delete</a></h3>
-                                    <h3 id="<?php echo $item['status'] ?>"><?php echo $item['status'] ?></h3>
+                                    <p><a href="./edit.php?type=item&id=<?php echo $item['id']; ?>" class="btn btn-secondary">Edit</a></p>
+                                    <p><a href="./delete.php?type=item&id=<?php echo $item['id']; ?>" class="btn btn-secondary">Delete</a></p>
+                                    <p><?php echo $item['time'];?>  min</p>
+                                    <p id="<?php echo $item['status'] ?>"><?php echo $item['status'] ?></p>
                                 </div>
                             </div>
                 <?php

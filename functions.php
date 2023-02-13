@@ -54,8 +54,8 @@
     }
 
     //adds a new item with a name, status and the category id
-    function addItem($itemName, $catId, $itemStatus) {
-        $query = "INSERT INTO items (name, type, catid, status) VALUES ('$itemName','item', '$catId', '$itemStatus')";
+    function addItem($itemName, $catId, $itemStatus, $itemTime) {
+        $query = "INSERT INTO items (name, type, catId, status, time) VALUES ('$itemName','item', '$catId', '$itemStatus', '$itemTime')";
         $item = $GLOBALS['db']->prepare($query);
         $item->execute();
 

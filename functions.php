@@ -104,7 +104,7 @@
             case 'start':
             case 'busy':
             case 'done':
-                $query = "SELECT * FROM items WHERE status = '$status'";
+                $query = "SELECT * FROM items ORDER BY FIELD(status, '$status') DESC";
                 $item = $GLOBALS['db']->prepare($query);
                 $item->execute();
                 return $item->fetchAll(\PDO::FETCH_ASSOC);

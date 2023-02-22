@@ -26,16 +26,23 @@
             } else if(isset($_GET['sort'])) {
                 $sort = $_GET['sort'];
                 $categories = sortCategory($sort);
+            } else if(isset($_GET['sortTime'])) {
+                $sortTime = $_GET['sortTime'];
+                $lists = sortTime($sortTime);
             }
         ?>
             <div>
-                <h2>
+                <h2>    
                     <a href="./index.php?sort=ASC" class="btn btn-primary">Ascending</a>
                     <a href="./index.php?sort=DESC" class="btn btn-primary">Descending</a>
                 </h2>
                     <a href="./index.php?status=start" class="btn btn-secondary">Start</a>
                     <a href="./index.php?status=busy" class="btn btn-secondary">Busy</a>
                     <a href="./index.php?status=done" class="btn btn-secondary">Done</a>
+                <h2>
+                    <a href="./index.php?sortTime=ASC" class="btn btn-primary">Time ascending</a>
+                    <a href="./index.php?sortTime=DESC" class="btn btn-primary">Time descending</a>
+                </h2>
             </div>
         <section class="container-fluid">
             <div class="row">

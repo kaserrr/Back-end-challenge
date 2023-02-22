@@ -123,4 +123,13 @@
 
         return $item->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+        //sorts items on amount of time needed
+    function sortTime($sortTime) {
+        $query = "SELECT * FROM items ORDER BY time $sortTime";
+        $item = $GLOBALS['db']->prepare($query);
+        $item->execute();
+
+        return $item->fetchAll(\PDO::FETCH_ASSOC);
+    }
     
